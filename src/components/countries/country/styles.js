@@ -39,6 +39,15 @@ export default makeStyles({
       textDecoration: 'none',
       color: 'hsl(200, 15% 8%)',
       display: 'inline-block'
+    },
+    "@media (max-width: 1000px)": {
+      width: '28%'
+    },
+    "@media (max-width: 580px)": {
+      width: '96%'
+    },
+    "@media (max-width: 768px)": {
+      width: '46%'
     }
   },
   countryImg: {

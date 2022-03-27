@@ -4,7 +4,7 @@ import axios from "axios";
 import { BsArrowLeft } from "react-icons/bs";
 import { formatLink, formatNumber } from "../../utils/utility";
 import useStyles from './styles'
-import { Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 
 const url = "https://restcountries.com/v3.1/name/";
 const url2 = "https://restcountries.com/v3.1/alpha/"
@@ -12,12 +12,14 @@ const url2 = "https://restcountries.com/v3.1/alpha/"
 const SingleCountry = ({ darkMode }) => {
   const [country, setCountry] = useState(null);
   const [border, setBorder] = useState([]);
+  const [loading, setLoading] = useState(false)
   const params = useParams();
   const classes = useStyles()
 
   useEffect(() => {
     try {
       (async () => {
+          setLoading(true)
         setCountry(null);
         setBorder([]);
         const { data } = await axios.get(
@@ -31,6 +33,7 @@ const SingleCountry = ({ darkMode }) => {
             ])
         })
         setCountry(data[0])
+        setLoading(false)
       })();
     } catch (error) {
       console.log(error);
@@ -42,6 +45,13 @@ const SingleCountry = ({ darkMode }) => {
           <Link className={`${classes.backBtn} ${darkMode ? "darkmode-text darkmode-light" : ""}`} to="/">
             <BsArrowLeft /> Back
           </Link>
+          {loading && (
+                <div className={`${classes.loading} ${darkMode ? "darkmode-light" : ""}`}>
+                    <p>
+                        <CircularProgress />
+                    </p>
+                </div>
+            )}
           {country && <div className={classes.countryPageDisplay}>
               {country?.flags.png && (
                   <img className={classes.countryFlag} src={country?.flags.png} alt={country?.name.common}/>

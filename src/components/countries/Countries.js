@@ -3,6 +3,7 @@ import axios from "axios";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
+import { CircularProgress } from '@mui/material'
 import { BiError } from "react-icons/bi";
 import Country from "./country/Country";
 import useStyles from './styles'
@@ -15,14 +16,17 @@ const Countries = ({ darkMode }) => {
   const [error, setError] = useState('')
   const [searchItem, setSearchItem] = useState("")
   const [scroll, setScroll] = useState(false)
+  const [loading, setLoading] = useState(false)
   const classes = useStyles()
 
   useEffect(() => {
     try {
         (async () => {
+            setLoading(true)
             const { data } = await axios.get(url)
             setCountries(data)
             setFilteredCountries(data)
+            setLoading(false)
             console.log(data)
         })()
     } catch (error) {
@@ -113,6 +117,13 @@ const Countries = ({ darkMode }) => {
                 <div className={`${classes.error} ${darkMode ? "darkmode-light" : ""}`}>
                     <p>
                         <BiError /> {error} <BiError />
+                    </p>
+                </div>
+            )}
+        {loading && (
+                <div className={`${classes.loading} ${darkMode ? "darkmode-light" : ""}`}>
+                    <p>
+                        <CircularProgress />
                     </p>
                 </div>
             )}
