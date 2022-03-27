@@ -18,7 +18,7 @@ function App() {
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Routes>
         <Route path='/' element={<Countries darkMode={darkMode} />} />
-        <Route path='/country/:id' element={<SingleCountry darkMode={darkMode} />} />
+        <Route path='/country/:country' element={<SingleCountry darkMode={darkMode} />} />
       </Routes>
     </Router>
   );

@@ -31,5 +31,51 @@ export default makeStyles({
         width: '50%',
         maxHeight: '500px',
         height: '100%'
+    },
+    countryPageInfo: {
+        width: '40%',
+        fontSize: '17px',
+        '& span': {
+            fontWeight: '600'
+        },
+        '& p': {
+            fontWeight: '300 !important'
+        }
+    },
+    countryPageInfoHeader: {
+        fontSize: '35px',
+        padding: '20px 0'
+    },
+    infoFlex: {
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+    infoLeft: {
+        '& p': {
+            linHeight: '34px'
+        }
+    },
+    infoRight: {
+        '& p': {
+            linHeight: '34px'
+        }
+    },
+    infoBorder: {
+        padding: '40px 0',
+        '& a': {
+            transition: 'all 0.2s',
+            color: '#000',
+            textDecoration: 'none',
+            margin: '5px',
+            fontSize: '14px',
+            padding: '5px 20px',
+            borderRadius: '6px',
+            boxShadow: '0 0  4px 0px rgb(0 0 0  / 24%)'
+        }
+    }, 
+    borderCountries: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center'
     }
 })

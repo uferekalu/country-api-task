@@ -40,7 +40,7 @@ const SingleCountry = ({ darkMode }) => {
   return (
       <div className={classes.countryPage}>
           <Link className={`${classes.backBtn} ${darkMode ? "darkmode-text darkmode-light" : ""}`} to="/">
-            <BsArrowLeft /> Back To Home
+            <BsArrowLeft /> Back
           </Link>
           {country && <div className={classes.countryPageDisplay}>
               {country?.flags.png && (
@@ -51,75 +51,67 @@ const SingleCountry = ({ darkMode }) => {
                 variant="h2"
                 component="div"
                 sx={{ flexGrow: 1 }}
+                className={classes.countryPageInfoHeader}
                 >
                     {country?.name.common}
                 </Typography>
                 <div className={classes.infoFlex}>
                     <div className={classes.infoLeft}>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Native Name:</span> {" "} {country?.altSpellings[1]}
+                        <p><span>Native Name:</span> {" "} {country?.altSpellings[1]}</p>
                     </Typography>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Population:</span> {" "} {country?.population && formatNumber(country?.population)}
+                        <p><span>Population:</span> {" "} {country?.population && formatNumber(country?.population)}</p>
                     </Typography>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Region:</span> {country?.region}
+                        <p><span>Region:</span> {country?.region}</p>
                     </Typography>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Sub Region:</span> {country?.subregion}
+                        <p><span>Sub Region:</span> {country?.subregion}</p>
                     </Typography>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Capital:</span> {country?.capital}
+                        <p><span>Capital:</span> {country?.capital}</p>
                     </Typography>
                     </div>
                     <div className={classes.infoRight}>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Top Level Domain:</span> {country?.tld[0]}
+                        <p><span>Top Level Domain:</span> {country?.tld[0]}</p>
                     </Typography>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Currencies:</span> {" "} {country?.currencies && Object.values(country?.currencies).map((currency) => currency.name).join(", ")}
+                        <p><span>Currencies:</span> {" "} {country?.currencies && Object.values(country?.currencies).map((currency) => currency.name).join(", ")}</p>
                     </Typography>
                     <Typography
-                        variant="h2"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        <span>Languages:</span> {" "} {country?.languages && Object.values(country?.languages).map((language) => language).join(", ")}
+                        <p><span>Languages:</span> {" "} {country?.languages && Object.values(country?.languages).map((language) => language).join(", ")}</p>
                     </Typography>
                     </div>
                 </div>
                 {border.length > 0 && (
                     <div className={`${classes.infoBorder} ${classes.borderCountries}`}>
                         <Typography
-                        variant="h3"
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
@@ -130,7 +122,7 @@ const SingleCountry = ({ darkMode }) => {
                             darkMode
                                 ? "darkmode-text darkmode-light"
                                 : ""
-                        }`} to={`/${formatLink(val.toLowerCase(), true)}`} key={index}>{val}</Link>
+                        }`} to={`/country/${formatLink(val.toLowerCase(), true)}`} key={index}>{val}</Link>
                     ))}
                     </div>
                 )}

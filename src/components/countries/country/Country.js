@@ -12,7 +12,7 @@ const Country = ({ flags, name, capital, region, population, darkMode }) => {
     >
       <img className={classes.countryImg} src={flags} alt={name} />
       <div className={classes.countryInfo}>
-        <Link title={name} to={`/${formatLink(name.toLowerCase(), false)}`}>
+        <Link title={name} to={`/country/${formatLink(name.toLowerCase(), false)}`}>
           <Typography
             variant="h4"
             component="div"
