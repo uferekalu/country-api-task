@@ -22,7 +22,7 @@ Users should be able to:
 ### Built with
 
 -   Semantic HTML5 markup
--   material ui (css library) ()
+-   material ui (css library) (https://mui.com/)
 -   JavaScript
 -   React Router
 -   React Icons
