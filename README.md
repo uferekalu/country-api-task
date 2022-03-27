@@ -16,7 +16,7 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Github](https://github.com/uferekalu/)
+-   Solution URL: [Github](https://github.com/uferekalu/country-api-task)
 -   Live Site URL: [Netlify](https://ufere-countries-app-task.netlify.app/)
 
 ### Built with
